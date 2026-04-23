@@ -69,7 +69,7 @@ def auth_headers(token: str) -> dict:
 
 def get_books() -> list:
     try:
-        r = requests.get(f"{API_BASE}/books", timeout=10)
+        r = requests.get(f"{API_BASE}/books", timeout=60)
         r.raise_for_status()
         return r.json()
     except Exception as e:
@@ -216,7 +216,7 @@ elif page == "✏️ Update Book":
         }
         try:
             r = requests.put(f"{API_BASE}/books/{int(book_id)}", json=payload,
-                             headers=auth_headers(token), timeout=10)
+                             headers=auth_headers(token), timeout=60)
             if r.status_code == 200:
                 st.success("✅ Book updated!")
                 st.json(r.json())
@@ -264,7 +264,7 @@ elif page == "🩹 Patch Book":
         else:
             try:
                 r = requests.patch(f"{API_BASE}/books/{int(book_id)}", json=payload,
-                                   headers=auth_headers(token), timeout=10)
+                                   headers=auth_headers(token), timeout=60)
                 if r.status_code == 200:
                     st.success("✅ Book patched!")
                     st.json(r.json())
@@ -296,7 +296,7 @@ elif page == "🗑️ Delete Book":
     if st.button("🗑️ Delete Book", type="primary"):
         try:
             r = requests.delete(f"{API_BASE}/books/{int(book_id)}",
-                                headers=auth_headers(token), timeout=10)
+                                headers=auth_headers(token), timeout=60)
             if r.status_code == 200:
                 st.success(f"✅ {r.json().get('message', 'Deleted.')}")
             else:
