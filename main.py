@@ -94,3 +94,11 @@ def patch_book(book_id: int, book: BookUpdate, token: str = Depends(verify_token
 def delete_book(book_id: int, token: str = Depends(verify_token)):
     response = supabase.table("books").delete().eq("id", book_id).execute()
     return {"message": f"Book {book_id} deleted"}
+
+@app.get("/books", response_model=List[dict])
+def get_books():
+    try:
+        response = supabase.table("books").select("*").execute()
+        return response.data
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
