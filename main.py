@@ -8,7 +8,7 @@ from supabase import create_client, Client
 
 # --- Configuration ---
 # It is highly recommended to set these in Render's "Environment Variables" tab!
-URL = os.getenv("SUPABASE_URL", "https://bdrwzxqucaefpwxyjqvv.supabase.co")
+URL = os.getenv("SUPABASE_URL", "https://bdrwzxqucaefpwxyjqvv.supabase.co/rest/v1/")
 KEY = os.getenv("SUPABASE_KEY", "sb_publishable_rpTK6BCBOdUZC8O5TKIbcw_gAtloIGs")
 SECRET_BEARER_TOKEN = os.getenv("API_TOKEN", "password")
 
