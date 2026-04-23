@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # ── Configuration ──────────────────────────────────────────────────────────────
-API_BASE = "https://bookstore-backend-7hms.onrender.com"   # ← update if needed
+API_BASE = "https://assignment7.onrender.com"   # ← update if needed
 DEFAULT_TOKEN = "password"                                  # ← update to match API_TOKEN
 
 # ── Page setup ─────────────────────────────────────────────────────────────────
